@@ -1,4 +1,3 @@
-<?php 
 /*
 
 Copyright (c) 2013, Maximiliano Kestli <maxkaestli@hotmail.com>
@@ -35,6 +34,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
+<?php 
+
 define ("MYSQL_HOST","");
 define ("MYSQL_USER","");
 define ("MYSQL_PASS","");
@@ -45,14 +46,14 @@ class mysql
 {
 	public  $resultado;
 	private $link;
-	function conect()
+	function connect()
 	{
 		$this->link=mysql_connect(MYSQL_HOST,MYSQL_USER,MYSQL_PASS);
 		mysql_select_db(MYSQL_DB,$this->link) or die(mysql_error());
 		mysql_query ("SET NAMES 'utf8'");
 	}
 	
-	function conect_db($db)
+	function connect_db($db)
 	{
 		$this->link=mysql_connect(MYSQL_HOST,MYSQL_USER,MYSQL_PASS);
 		mysql_select_db($db,$this->link) or die(mysql_error());
@@ -78,7 +79,7 @@ class mysql
 	function fetch_array()
 	{return mysql_fetch_array($this->resultado);}
 	
-	function cerrar()
+	function close()
 	{
 		mysql_close($this->link);
 	}
