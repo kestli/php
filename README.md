@@ -16,14 +16,19 @@ Example:
 	
 	$db = new mysql();
 	$db->connect();
-	$db->query("SELECT * from MY_TABLE");
+	$db->query("SELECT name,surname from MY_TABLE");
 
 	while ($r = $db->fetch_array())
 	 echo "Name: ".$r["name"]."/ Surname: ".$r["surname"];
 
 	$db->close();
 	?>
-	
-	
+
+Other functions
+
++ `num_rows()`: gives the number of results.
++ `array_pos($pos)`: specify a particular position in the array of results.
+
+==	
  Contact to [Maximiliano Kestli](mailto:maxkaestli@hotmail.com)
  
